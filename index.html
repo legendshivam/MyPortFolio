@@ -134,16 +134,16 @@
 <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me!</span></h2>
 
-    <form action="#">
+    <form onsubmit="sendEmail();reset();return false;">
         <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" id="name" placeholder="Full Name">
+                <input type="email" id="email" placeholder="Email Address">
         </div>
         <div class="input-box">
-            <input type="number" placeholder="Mobile Number">
-            <input type="text" placeholder="Email Subject">
+            <input type="number" id="number" placeholder="Mobile Number">
+            <input type="text" id="subject" placeholder="Email Subject">
          </div>
-         <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+         <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
          <input type="submit" value="Send Message" class="btn">
     </form>
 
@@ -169,5 +169,20 @@
 
 <!-- custom js -->
 <script src="script.js"></script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+    function sendEmail(){
+    Email.send({
+    SecureToken: "9a98552c-9cd5-4a2b-8cbf-b936d944196f",
+    To : 'samalpinaki94@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : document.getElementById("subject").value,
+    Body : document.getElementById("message").value + document.getElementById("number").value
+}).then(
+  message => alert("THANK YOU FOR CONTACTING I WILL GET BACK TO YOU RIGHT AWAY!!")
+);      
+    }
+    </script>
 </body>
 </html>
