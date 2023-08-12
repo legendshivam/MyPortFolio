@@ -174,15 +174,12 @@
     <script>
     function sendEmail(){
     Email.send({
-    Host : "smtp.gmail.com",
-    Username : "samalpinaki94@gmail.com",
-    Password : "shivsambhu",
     To : 'samalpinaki94@gmail.com',
     From : document.getElementById("email").value,
     Subject : document.getElementById("subject").value,
     Body : document.getElementById("message").value + document.getElementById("number").value
 }).then(
-  message => alert(message)
+  message => alert("Sorry Currently This Feature is Not Available But You can directly contact me via: samalpinaki94@gmail.com")
 );      
     }
     </script>
